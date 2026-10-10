@@ -1,0 +1,19 @@
+import type { Metadata } from 'next'
+import './globals.css'
+
+export const metadata: Metadata = {
+  title: 'QALBU AI - Curhat Hidup Spiritual Islam',
+  description: 'Curhat dan tanya jawab agama Islam dengan figur-figur ustadz terkemuka Indonesia',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="id">
+      <body>{children}</body>
+    </html>
+  )
+}
