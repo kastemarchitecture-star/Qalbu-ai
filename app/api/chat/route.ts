@@ -9,6 +9,15 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { message, systemPrompt, conversationHistory } = body;
 
+    // Debug logging
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    console.log("🔍 Debug Info:");
+    console.log("- API Key exists:", !!apiKey);
+    console.log("- API Key length:", apiKey?.length || 0);
+    console.log("- API Key starts with:", apiKey?.substring(0, 10) || "MISSING");
+    console.log("- Message:", message?.substring(0, 50) || "MISSING");
+    console.log("- SystemPrompt:", systemPrompt?.substring(0, 50) || "MISSING");
+
     if (!message || !systemPrompt) {
       return Response.json(
         { error: "Missing required fields: message and systemPrompt" },
